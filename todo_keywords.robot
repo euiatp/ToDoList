@@ -31,13 +31,11 @@ Checked Todo Item
     Wait Until Element Is Visible    ${checkbox}    5s
     Click Element    ${checkbox}
 
-
 Get CSS Value
     [Arguments]    ${locator}    ${attribute_name}
     ${element}=    Get WebElement    ${locator}
     ${css_value}=    Call Method    ${element}    value_of_css_property    ${attribute_name}
     RETURN    ${css_value}
-
 
 Verify Todo Appears In Completed List
     [Arguments]    ${todo_text}
@@ -54,7 +52,6 @@ Verify Todo Appears In Completed List
 
     Should Be Equal    ${decoration}    line-through
 
-
 Verify Todo Moved To Completed
     [Arguments]    ${todo_text}    ${incomplete_before}    ${completed_before}
 
@@ -70,7 +67,6 @@ Verify Todo Moved To Completed
 Verify Todo Count Not Changed
     [Arguments]    ${before}    ${after}
     Should Be Equal    ${before}    ${after}
-
 
 Add Todo And Verify Increased
     [Arguments]    ${todo_text}
@@ -96,7 +92,6 @@ Add Todo Item
     ${locator}=    Get Incomplete Todo Locator    ${todo_text}
     Wait Until Page Contains Element    ${locator}    5s
 
-
 Get Todo Count
     [Arguments]    ${list_locator}
     ${count}=    Get Element Count    ${list_locator}
@@ -110,20 +105,16 @@ Verify Todo Count Decreased
     [Arguments]    ${before}    ${after}
     Should Be True    ${after} == ${before} - 1
 
-
 Verify Todo In Incomplete List
     [Arguments]    ${todo_text}
     ${todo_locator}=    Get Incomplete Todo Locator    ${todo_text}
     Element Should Be Visible    ${todo_locator}
-
 
 Delete Completed Todo Item
     [Arguments]    ${todo_text}
     ${delete_btn}=    Replace String    ${DELETE_BUTTON_TMPL}    {}    ${todo_text}
     Wait Until Element Is Visible    ${delete_btn}    5s
     Click Element    ${delete_btn}
-
-
 
 Verify Completed Todo Item Is Removed
     Wait Until Page Does Not Contain Element
@@ -163,7 +154,6 @@ Verify Todo Exists By Position
     ...    ${position}
     Element Text Should Be    ${locator}    ${expected_text}
 
-
 Check Todo By Position
     [Arguments]    ${position}
     ${checkbox}=    Replace String
@@ -179,7 +169,6 @@ Get Incomplete Todo By Index
     ...    {}
     ...    ${index}
     RETURN    ${locator}
-
 
 Verify Completed Todo Exists
     [Arguments]    ${todo_text}
