@@ -38,8 +38,8 @@ Before running the tests, make sure you have:
 - pip install robotframework-seleniumlibrary
 
 ## How to Run the Tests
-- Run the entire test suite: robot todo_tests.robot
-- Run with report output: robot -d reports todo_tests.robot
+- Run the entire test suite: robot todo_testcases.robot
+- Run with report output: robot -d reports todo_testcases.robot
 
 ## Test Cases Overview
 ### TC_001_Verify_Todo_List_Main_Page_UI
